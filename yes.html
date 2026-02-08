@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YAY 💖</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Hearts -->
+  <div class="hearts"></div>
+
+  <!-- Music (put music.mp3 in same folder) -->
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="parent">
+    <div class="child">
+      <h1>YAYYYY 🥰</h1>
+      <p class="romantic">
+        If someday asked me, What is my Fav color?.<br>
+        I will say blue <br>
+        If someday asked me, To choose among 7 Billion. <br>
+        I will always choose you 💖 <br>
+        Love you babee 💕
+      </p>
+
+      <!-- Rope + Clothespins + 7 Photos (ADDED ONLY) -->
+      <div class="photo-line">
+        <div class="photo-track">
+          <div class="photo"><img src="photo1.jpg" alt="photo 1"></div>
+          <div class="photo"><img src="photo2.jpg" alt="photo 2"></div>
+          <div class="photo"><img src="photo3.jpg" alt="photo 3"></div>
+          <div class="photo"><img src="photo4.jpg" alt="photo 4"></div>
+          <div class="photo"><img src="photo5.jpg" alt="photo 5"></div>
+          <div class="photo"><img src="photo6.jpg" alt="photo 6"></div>
+        </div>
+      </div>
+
+      <p class="romantic small">
+        I’m really lucky to have you. 💗
+      </p>
+    </div>
+  </div>
+
+<script>
+  // Hearts floating
+  const heartsContainer = document.querySelector(".hearts");
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 7000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>

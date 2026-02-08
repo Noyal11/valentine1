@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valentine 💘</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Hearts -->
+  <div class="hearts"></div>
+
+  <div class="parent">
+    <div class="child">
+      <h1>Will you be my Valentine Zelena? 💖</h1>
+
+      <div class="buttons">
+        <button id="yesBtn">Yes 💕</button>
+        <button id="noBtn">No 😢</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Hearts floating
+  const heartsContainer = document.querySelector(".hearts");
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 7000);
+  }
+
+  setInterval(createHeart, 300);
+
+  // No button runs away
+  const noBtn = document.getElementById("noBtn");
+  const parent = document.querySelector(".parent");
+
+  noBtn.addEventListener("mouseover", () => {
+    noBtn.style.position = "absolute";
+
+    const rect = parent.getBoundingClientRect();
+    const maxX = rect.width - noBtn.offsetWidth;
+    const maxY = rect.height - noBtn.offsetHeight;
+
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+  });
+
+  // Yes opens new page
+  document.getElementById("yesBtn").addEventListener("click", () => {
+    window.location.href = "yes.html";
+  });
+</script>
+
+</body>
+</html>
